@@ -18,6 +18,7 @@ public class EchoService implements Serializable {
    @PostConstruct
    private void postConstruct() {
       echoService = this;
+      System.out.println("POST CONSTRUCT");
    }
 
    public static EchoService getEchoService() {

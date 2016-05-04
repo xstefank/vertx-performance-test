@@ -14,15 +14,15 @@ import javax.inject.Inject;
 @Microservice
 public class RestfulMicroservice {
 
-//   @Inject
-//   @MicroserviceReference
-//   private EchoService echoService;
+   @Inject
+   @MicroserviceReference
+   private EchoService echoService;
 
    public String hello() {
-      return EchoService.hello();
+      return echoService.hello();
    }
 
    public String sayHello(@ParamName("msg") String msg) {
-      return EchoService.sayHello(msg);
+      return echoService.sayHello(msg);
    }
 }

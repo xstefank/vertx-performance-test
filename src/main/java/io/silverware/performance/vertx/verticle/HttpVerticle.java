@@ -11,12 +11,15 @@ import io.vertx.core.http.HttpServerOptions;
  */
 public class HttpVerticle extends AbstractVerticle {
 
+   private EchoService echoService;
    private HttpServer server;
 
    @Override
    public void start() throws Exception {
+      echoService = EchoService.getEchoService();
+
       server = vertx.createHttpServer().requestHandler(req -> {
-         req.response().end(EchoService.hello());
+         req.response().end(echoService.hello());
       }).listen(8082, "localhost");
    }
 
